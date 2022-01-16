@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div id="confetti-box"></div>
+
+    <h2>Tic Tac Toe</h2>
+    <div class="grid">
+        <div class="row">
+            <div cell-data=1 style="border-top-left-radius: 20px;"></div>
+            <div cell-data=2></div>
+            <div cell-data=3 style="border-top-right-radius: 20px;"></div>
+        </div>
+        <div class="row">
+            <div cell-data=4></div>
+            <div cell-data=5></div>
+            <div cell-data=6></div>
+        </div>
+        <div class="row">
+            <div cell-data="7" style="border-bottom-left-radius: 20px;"></div>
+            <div cell-data=8></div>
+            <div cell-data=9 style="border-bottom-right-radius: 20px;"></div>
+        </div>
+    </div>
+    <h3><br> It is X's turn. </h3>
+    <div class="refresh"> <i class="fa fa-refresh"></i> Refresh</div>
+
+    <script src="confetti.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

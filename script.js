@@ -1,5 +1,5 @@
 player = ["", "", "", "", "", "", "", "", ""]; // x
-default_board = ["", "", "", "", "", "", "", "", ""]; // O
+default_board = ["", "", "", "", "", "", "", "", ""]; // default
 current_player = "X";
 totalfree = 9;
 winner_not_decided = true;
@@ -30,13 +30,14 @@ document.querySelectorAll(".row div").forEach((element) => {
         current_player = "X";
         document.querySelector("body h3").innerHTML = "<br>It is X's turn.";
       }
+      if (winner_not_decided) {
+        checkwinner();
+      }
       totalfree -= 1;
-      if (totalfree == 0) {
+      if (totalfree == 0 && winner_not_decided) {
         winner_not_decided = false;
         document.querySelector("body h3").innerHTML =
           "It's a draw.<br>Thank You for spending time with us";
-      } else {
-        checkwinner();
       }
 
       console.log(player);
@@ -81,12 +82,13 @@ document.querySelector(".refresh").addEventListener("click", (event) => {
   document.querySelectorAll(".row div").forEach((element) => {
     element.innerHTML = "";
   });
-  player = default_board;
+  player = ["", "", "", "", "", "", "", "", ""];
   current_player = "X";
   totalfree = 9;
   winner_not_decided = true;
   document.querySelector("body h3").innerHTML = "It is X's turn.";
 });
+
 if (document.body.clientWidth < 600) {
   var maxParticleCount = 50;
   console.log("he");

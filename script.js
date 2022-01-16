@@ -87,3 +87,7 @@ document.querySelector(".refresh").addEventListener("click", (event) => {
   winner_not_decided = true;
   document.querySelector("body h3").innerHTML = "It is X's turn.";
 });
+if (document.body.clientWidth < 600) {
+  var maxParticleCount = 50;
+  console.log("he");
+}

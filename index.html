@@ -57,10 +57,10 @@
         }, 1000);
         setTimeout(() => {
             typewriter(para[1], textarry[1]);
-        }, textarry[0].length * 150 + 1500);
+        }, textarry[0].length * 100 + 1500);
         setTimeout(() => {
             document.getElementById("tvscreen").style.display = "block";
-        }, (textarry[0].length + textarry[1].length) * 150 + 2000);
+        }, (textarry[0].length + textarry[1].length) * 100 + 2000);
 
 
         function typewriter(para, text) {
@@ -75,7 +75,7 @@
                     para.innerHTML = para.innerHTML.replace('<span class="term">_</span>', "")
                     clearInterval();
                 }
-            }, 150);
+            }, 100);
             console.log("started")
         }
     </script>

@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(
+    circle,
+    rgba(122, 101, 218, 1) 0%,
+    rgba(103, 115, 215, 1) 15%,
+    rgba(0, 114, 249, 1) 100%
+  );
+}
+body h2 {
+  font-weight: 700;
+  color: aliceblue;
+  font-size: 35px;
+}
+body h3 {
+  font-weight: 700;
+  color: rgb(226, 255, 189);
+  font-size: 25px;
+  opacity: 0;
+  animation: animate1 0.5s ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+  text-align: center;
+}
+@keyframes animate1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.grid {
+  display: table;
+  border-spacing: 7px;
+}
+.row {
+  display: table-row;
+}
+.row div {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.329);
+  backdrop-filter: blur(2px);
+  display: table-cell;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+  padding-top: 8px;
+  font-weight: 500;
+  color: transparent;
+  transition: all 0.5s ease;
+  animation: animate 0.3s ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+@keyframes animate {
+  0% {
+    width: 70px;
+    height: 70px;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+}
+
+.refresh {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.329);
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  opacity: 0;
+  color: rgba(0, 52, 163, 0.767);
+  transform: translateY(50px);
+  transition: all 0.3s ease-in;
+  animation: animate2 0.4s ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.refresh i {
+  margin-right: 7px;
+}
+.refresh:hover {
+  background: rgba(0, 81, 255, 0.329);
+  color: white;
+}
+@keyframes animate2 {
+  0% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+#confetti-box {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  background: transparent;
+  display: block;
+}

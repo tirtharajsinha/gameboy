@@ -264,6 +264,7 @@ ul {
   height: 80%;
   width: 100%;
   overflow-y: scroll;
+  color: yellow;
 }
 
 @media only screen and (max-width: 600px) {

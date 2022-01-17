@@ -18,7 +18,7 @@
         <p></p>
         <p></p>
         <div id="tvscreen">
-            <h3><img src="gameboy green.png" alt="" class="logo"> GameBoy</h3>
+            <h3 style="color:rgb(132, 0, 255)"><img src="gameboy green.png" alt="" class="logo"> GameBoy</h3>
             <ul>
                 <li><a href="/tictactoe/index.html">Tic Tac Toe</a></li>
                 <li><a href="#">Pong</a></li>
@@ -29,14 +29,29 @@
                 <li><a href="#">DragonFly</a></li>
                 <li><a href="#">Bird Shooter</a></li>
                 <li><a href="#">Block Hopper</a></li>
-
-
             </ul>
         </div>
     </div>
+
     <script>
         let para = document.querySelectorAll(".crt p");
-        let textarry = ['This is 17 Jan, 1979.', "Wanna play some modern game ? Let's see our collection."]
+        const d = new Date();
+        var month = [
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "may",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec",
+        ];
+        let date = d.getDate() + " " + month[d.getMonth()]
+        let textarry = [`This is ${date}, 1979.`, "Wanna play some modern games ? Let's see our collection."]
         setTimeout(() => {
             typewriter(para[0], textarry[0])
         }, 1000);
@@ -45,7 +60,7 @@
         }, textarry[0].length * 150 + 1500);
         setTimeout(() => {
             document.getElementById("tvscreen").style.display = "block";
-        }, (textarry[0].length + textarry[1].length) * 150 + 2500);
+        }, (textarry[0].length + textarry[1].length) * 150 + 2000);
 
 
         function typewriter(para, text) {

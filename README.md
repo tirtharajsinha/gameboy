@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
 
-A simple but beautiful Tic Tac Toe game.
+A small Collection of retro Games.
 
 > built using Javascript

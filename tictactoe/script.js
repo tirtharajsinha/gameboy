@@ -20,9 +20,9 @@ var audio2 = new Audio("../audio/audio2.wav");
 var audio3 = new Audio("../audio/audio3.wav");
 var audio4 = new Audio("../audio/audio4.wav");
 var audio5 = new Audio("../audio/audio5.wav");
-setTimeout(() => {
-  audio3.play();
-}, 200);
+
+// var x = document.getElementById("myAudio").autoplay;
+// console.log(x);
 
 document.querySelectorAll(".row div").forEach((element) => {
   element.addEventListener("click", (event) => {
@@ -54,8 +54,6 @@ document.querySelectorAll(".row div").forEach((element) => {
         document.querySelector("body h3").innerHTML =
           "It's a draw.<br>Thank You for spending time with us";
       }
-
-      console.log(player);
     }
   });
 });

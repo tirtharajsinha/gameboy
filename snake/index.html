@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="icon" href="favicon.ico" sizes="32x32" type="image/icon">
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <title>Snake Mania</title>
+</head>
+
+<body>
+    <img src="snake1.png" alt="" class="snake-image1">
+    <img src="snakeicon.png" alt="" class="snake-image">
+    <div class="body">
+        <div class="board" id="board"></div>
+        <!-- <button id="pause"><i class="fa fa-pause"></i></button> -->
+        <div class="scoreboard">
+            <h3>Score : <span id="score">0</span></h3>
+            <h3>Highest Score : <span id="hscore">--</span></h3>
+            <h3>Level : <span id="level">1</span></h3>
+        </div>
+    </div>
+    <div class="gameover" id="gameover">
+        <img src="gameover.png" alt="">
+        <h4>Your score : <span id="finalscore"></span></h4>
+        <h4 id="reload"><i class="fa fa-refresh"></i> Play Again</h4>
+    </div>
+    <button id="rules-btn"><i class="fa fa-info-circle"></i></button>
+    <div class="rules" id="rules">
+        <img src="snake.png" alt="">
+        <h5>Welcome to the snake game.</h5>
+        <ul>
+            <h4>Rules</h4>
+            <li>This game is Desktop only game.</li>
+            <li>Start or pause the game using [enter] key.</li>
+            <li>control the snake using arrow keys [ up,down,left,right ].</li>
+            <li>if snake's head touch it's body or wall game will be over.</li>
+            <div class="foot">
+                <a href="../index.html"><i class="fa fa-home"></i></a>
+                <a href="https://tirtharajsinha.github.io"><i class="fa fa-user-md"></i></a>
+                <a href="mailto:sinhatirtharaj@gmail.com"><i class="fa fa-paper-plane"></i></a>
+                <a href="https://github.com/tirtharajsinha/gameboy"><i class="fa fa-github-alt"></i></a>
+            </div>
+        </ul>
+
+    </div>
+
+    <div class="poster">
+        <h2>This game is not designed for Mobile devices.</h2>
+        <h5>We can recommend you <a href="../tictactoe/index.html">Tic Tac Toe</a>, a mobile friendly game.</h5>
+        <h4>Or</h4>
+        <h5>Visit our <a href="../index.html">Home Page</a></h5>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

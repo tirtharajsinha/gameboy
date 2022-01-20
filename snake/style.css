@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: radial-gradient(
+    circle,
+    rgba(152, 251, 63, 1) 0%,
+    rgba(70, 252, 222, 1) 100%
+  );
+  height: 100vh;
+}
+.snake-image {
+  display: block;
+  position: fixed;
+  width: 200px;
+  height: auto;
+  bottom: 20px;
+  right: 20px;
+}
+.snake-image1 {
+  display: block;
+  position: fixed;
+  width: 300px;
+  height: auto;
+  top: 20px;
+  left: 20px;
+}
+.body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.board {
+  width: 500px;
+  height: 500px;
+  min-width: 500px;
+  min-height: 500px;
+  background-color: rgba(255, 255, 255, 0.507);
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.699);
+  border-left: 2px solid rgba(255, 255, 255, 0.699);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.836);
+  border-right: 1px solid rgba(255, 255, 255, 0.836);
+  display: grid;
+  grid-template-rows: repeat(20, 1fr);
+  grid-template-columns: repeat(20, 1fr);
+}
+.board div {
+  transition: all 0.1s ease;
+}
+.head {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transform: rotate(90deg);
+}
+.snake {
+  background: rgb(188, 228, 10);
+  border-radius: 7px;
+}
+.food {
+  background: transparent;
+  border-radius: 50%;
+}
+#pause {
+  position: fixed;
+  top: 180px;
+  right: 70px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  color: rgb(53, 53, 53);
+  background: rgba(255, 255, 255, 0.623);
+  cursor: pointer;
+}
+.scoreboard {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.418);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.scoreboard h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(105, 105, 105);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.scoreboard span {
+  color: rgb(47, 47, 47);
+}
+.board div img {
+  width: 100%;
+  height: auto;
+}
+.board .food img {
+  width: 100%;
+  height: auto;
+}
+.gameover {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  backdrop-filter: blur(7px);
+  background: rgba(255, 255, 255, 0.616);
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  transition: all 0.4s ease;
+}
+.gameover img {
+  width: 300px;
+  height: auto;
+  animation: appear 0.5s ease;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+@keyframes appear {
+  0% {
+    width: 300px;
+  }
+  100% {
+    width: 350px;
+  }
+}
+.gameover h4 {
+  color: rgba(70, 70, 70, 0.842);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gameover h4:hover > i {
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#rules-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 89, 255, 0.623);
+  cursor: pointer;
+  z-index: 10;
+}
+.rules {
+  width: 0px;
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+.rules img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+.rules h5 {
+  opacity: 0;
+}
+.rules ul {
+  padding-left: 20px;
+  opacity: 0;
+}
+.rules ul li {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.rules .foot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: 0.5px solid rgba(165, 165, 165, 0.384);
+  padding: 10px;
+  font-size: 16px;
+}
+
+.poster {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  backdrop-filter: blur(7px);
+  background: rgba(255, 255, 255, 0.616);
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  transition: all 0.4s ease;
+  z-index: 15;
+}
+.poster h2 {
+  font-size: 25px;
+  font-family: 800;
+}

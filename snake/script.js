@@ -127,6 +127,8 @@ function gameEngine() {
         default:
           break;
       }
+    } else if (index == snakeArr.length - 1) {
+      snakeElement.classList.add("tail");
     } else {
       snakeElement.classList.add("snake");
     }

@@ -64,6 +64,10 @@ body {
   background: rgb(188, 228, 10);
   border-radius: 7px;
 }
+.tail {
+  background: rgb(228, 206, 10);
+  border-radius: 50%;
+}
 .food {
   background: transparent;
   border-radius: 50%;

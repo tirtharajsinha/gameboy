@@ -1,4 +1,4 @@
-# Tic-Tac-Toe
+# gameboy
 
 A small Collection of retro Games.
 

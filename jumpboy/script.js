@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const movesound = new Audio("../audio/audio2.wav");
   const gameoversound = new Audio("../audio/bomb.wav");
   const gamesound = new Audio("../audio/spacesound.mp3");
-  gamesound.play();
+  gamesound.volume = 0.5;
   gamesound.loop = true;
 
   function createDoodler() {
@@ -159,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
       if (!isgamestarted && !isgameover) {
+        gamesound.play();
         isgamestarted = true;
         jump();
         console.log("jump 1");

@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: url("spacebg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  width: 400px;
+  height: 700px;
+  background-color: rgba(255, 174, 0, 0.068);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.doodler {
+  width: 30px;
+  height: 45px;
+  background: url("astroboy.png");
+  background-size: cover;
+  position: absolute;
+  transition: all 0.2s ease;
+}
+
+.platform {
+  width: 85px;
+  height: 30px;
+  background: url("platform.png");
+  background-size: cover;
+  position: absolute;
+  transition: all 0.2s ease;
+}
+.scoreboard {
+  width: 250px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(240, 248, 255, 0.432);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+.scoreboard img {
+  width: 100px;
+  height: auto;
+}
+.scoreboard .box h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+.reload {
+  padding: 5px 20px;
+  position: fixed;
+  top: 120px;
+  right: 10px;
+  background-color: rgba(255, 215, 130, 0.178);
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+.reload h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgba(226, 214, 250, 0.603);
+}
+.reload h4 i {
+  margin-right: 10px;
+  color: rgba(246, 241, 255, 0.89);
+}
+.reload h4:hover > i {
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

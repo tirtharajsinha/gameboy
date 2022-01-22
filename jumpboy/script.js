@@ -1,15 +1,18 @@
 let rules = false;
 const movesound = new Audio("../audio/audio2.wav");
-const gameoversound = new Audio("../audio/bomb.wav");
+const gameoversound = new Audio("../audio/crash.wav");
 const gamesound = new Audio("../audio/spacesound.mp3");
+gameoversound.volume = 0.7;
 gamesound.volume = 0.5;
 gamesound.loop = true;
 
 document.addEventListener("DOMContentLoaded", gameEngine);
 
+// gameEngine
 function gameEngine() {
   const grid = document.querySelector(".grid");
   const doodler = document.createElement("div");
+  const scorebox = document.getElementById("score");
   let doodlerLeftSpace = 50;
   let startpoint = 150;
   let doodlerBottomSpace = startpoint;
@@ -32,6 +35,10 @@ function gameEngine() {
     highscoreval = parseInt(highscore);
   }
   document.getElementById("hiscore").innerHTML = highscoreval;
+
+  // clearing playarea
+  grid.innerHTML = "";
+  scorebox.innerHTML = "0";
 
   // create doodler at the start.
   function createDoodler() {
@@ -85,7 +92,7 @@ function gameEngine() {
 
           // updating score
           score++;
-          document.getElementById("score").innerHTML = score;
+          scorebox.innerHTML = score;
         }
       });
     }
@@ -143,12 +150,15 @@ function gameEngine() {
     clearInterval(upTimerId);
     clearInterval(downTimerId);
     document.getElementById("finalscore").innerHTML = score;
+
+    // updating the highscore
     if (score > highscore) {
       highscoreval = score;
       localStorage.setItem("jumpboyhighscore", JSON.stringify(highscoreval));
     }
     document.querySelector(".gameover").style.display = "flex";
     gameoversound.play();
+    gamesound.pause();
   }
 
   // controlling the movement of the doodler
@@ -203,12 +213,13 @@ function gameEngine() {
   start();
 }
 
+// handelling roloading
 document.querySelector("#reload").addEventListener("click", (e) => {
   document.querySelector(".gameover").style.display = "none";
-  document.querySelector(".grid").innerHTML = "";
   gameEngine();
 });
 
+// handelling the ruls dialog
 document.getElementById("rules-btn").addEventListener("click", (e) => {
   if (rules) {
     rules = false;

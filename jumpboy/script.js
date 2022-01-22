@@ -156,9 +156,11 @@ function gameEngine() {
       highscoreval = score;
       localStorage.setItem("jumpboyhighscore", JSON.stringify(highscoreval));
     }
-    document.querySelector(".gameover").style.display = "flex";
     gameoversound.play();
     gamesound.pause();
+    setTimeout(() => {
+      document.querySelector(".gameover").style.display = "flex";
+    }, 1000);
   }
 
   // controlling the movement of the doodler
@@ -206,6 +208,7 @@ function gameEngine() {
       if (!isgamestarted && !isgameover) {
         gamesound.play();
         isgamestarted = true;
+        document.querySelector(".enter").style.display = "none";
         jump();
       }
     }

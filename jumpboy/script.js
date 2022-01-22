@@ -187,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       score = 0;
       document.getElementById("score").innerHTML = score;
       reload = true;
+      document.querySelector(".reload").style.display = "none";
       start();
     }
   });

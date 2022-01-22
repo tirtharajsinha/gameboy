@@ -22,7 +22,7 @@ let level = 1;
 let highscoreval = 0;
 let rules = false;
 
-let highscore = localStorage.getItem("highscore");
+let highscore = localStorage.getItem("snakehighscore");
 if (highscore == null) {
   highscoreval = 0;
   localStorage.setItem("highscore", JSON.stringify(highscoreval));
@@ -87,7 +87,7 @@ function gameEngine() {
     score++; // increasing the score
     if (score > highscoreval) {
       highscoreval = score;
-      localStorage.setItem("highscore", JSON.stringify(highscoreval));
+      localStorage.setItem("snakehighscore", JSON.stringify(highscoreval));
     }
 
     snakeArr.unshift({

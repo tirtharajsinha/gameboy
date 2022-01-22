@@ -23,6 +23,16 @@ function gameEngine() {
   let score = 0;
   let speed = 30;
 
+  // managing hiscore
+  let highscore = localStorage.getItem("jumpboyhighscore");
+  if (highscore == null) {
+    highscoreval = 0;
+    localStorage.setItem("highscore", JSON.stringify(highscoreval));
+  } else {
+    highscoreval = parseInt(highscore);
+  }
+  document.getElementById("hiscore").innerHTML = highscoreval;
+
   // create doodler at the start.
   function createDoodler() {
     grid.appendChild(doodler);
@@ -133,6 +143,10 @@ function gameEngine() {
     clearInterval(upTimerId);
     clearInterval(downTimerId);
     document.getElementById("finalscore").innerHTML = score;
+    if (score > highscore) {
+      highscoreval = score;
+      localStorage.setItem("jumpboyhighscore", JSON.stringify(highscoreval));
+    }
     document.querySelector(".gameover").style.display = "flex";
     gameoversound.play();
   }

@@ -94,3 +94,116 @@ body {
     transform: rotate(360deg);
   }
 }
+
+#rules-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 89, 255, 0.623);
+  cursor: pointer;
+  z-index: 10;
+}
+.rules {
+  width: 0px;
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+.rules img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+.rules h5 {
+  opacity: 0;
+}
+.rules ul {
+  padding-left: 20px;
+  opacity: 0;
+}
+.rules ul li {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.rules .foot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: 0.5px solid rgba(165, 165, 165, 0.384);
+  padding: 10px;
+  font-size: 16px;
+}
+
+.gameover {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  backdrop-filter: blur(7px);
+  background: rgba(39, 39, 39, 0.616);
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  transition: all 0.4s ease;
+}
+.gameover img {
+  width: 300px;
+  height: auto;
+  animation: appear 0.5s ease;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+@keyframes appear {
+  0% {
+    width: 300px;
+  }
+  100% {
+    width: 350px;
+  }
+}
+.gameover h4 {
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 20px;
+  font-weight: 700;
+}
+#reload {
+  font-size: 18px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.842);
+  color: rgb(71, 71, 71);
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.gameover h4:hover > i {
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

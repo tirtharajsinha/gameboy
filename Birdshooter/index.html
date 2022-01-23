@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="icon" href="crow.png" sizes="32x32" type="image/png">
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <title>FlapyBird</title>
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="scoreboard">
+            <h3>Kill : <span id="score">0/0</span></h3>
+        </div>
+    </div>
+
+
+
+
+    <!-- non game portion -->
+    <div class="enter">
+        <img src="indexfinger.png" alt="">
+
+        <h4>[<span>Click here</span> to Start]</h4>
+    </div>
+
+
+    <div class="gameover" id="gameover">
+        <img src="hunter.png" alt="">
+        <h1 id="msg">Well Done !</h1>
+        <h4>You killled : <span id="finalscore"></span></h4>
+        <h4 id="reload"><i class="fa fa-refresh"></i> Play Again</h4>
+    </div>
+
+    <button id="rules-btn"><i class="fa fa-info-circle"></i></button>
+    <div class="rules" id="rules">
+        <img src="dumbo-crows.gif" alt="">
+        <h5>Welcome to the BirdShooter</h5>
+        <h6>[ Retro Edition ]</h6>
+        <ul>
+            <h4>How to play :</h4>
+            <li>This game supports all size of display.</li>
+            <li>Start the game [Enter] key or just clicking/taping on playarea.</li>
+            <li>Click on birds to kill before thay reach other end.</li>
+            <li>1 bird kill = 1 point.</li>
+            <div class="foot">
+                <a href="../index.html"><i class="fa fa-home"></i></a>
+                <a href="https://tirtharajsinha.github.io"><i class="fa fa-user-md"></i></a>
+                <a href="mailto:sinhatirtharaj@gmail.com"><i class="fa fa-paper-plane"></i></a>
+                <a href="https://github.com/tirtharajsinha/gameboy"><i class="fa fa-github-alt"></i></a>
+            </div>
+        </ul>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

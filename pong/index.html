@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="icon" href="pong1.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>Pong</title>
+</head>
+
+<body class="">
+    <div class="theme-toggle">
+        <i class="fad fa-moon theme-icon"></i>
+    </div>
+    <div class="board">
+        <div class="score">
+            <div id="player-score">0</div>
+            <div id="computer-score">0</div>
+        </div>
+        <div class="ball" id="ball"></div>
+        <div class="paddle left" id="player-paddle"></div>
+        <div class="paddle right" id="computer-paddle"></div>
+    </div>
+
+    <img src="pong.png" alt="" class="bottomimage">
+    <img src="pingpong.png" alt="" class="topimage">
+
+    <!-- non game portion -->
+    <div class="enter">
+        <img src="indexfinger.png" alt="">
+
+        <h4>[<span>Click here</span> to Start]</h4>
+    </div>
+
+    <button id="rules-btn"><i class="fa fa-info-circle"></i></button>
+    <div class="rules" id="rules">
+        <img src="pong.gif" alt="">
+        <h5>Welcome to the Pong</h5>
+        <ul>
+            <h4>How to play :</h4>
+            <li>This game is player VS computer game and designed to use with mouse.</li>
+            <li>Start or pause the game just single clicking/taping on board and double click to reset the game.</li>
+            <li>Left paddel is assigned to player. Player can move it upside down by moving mouse pointer over the
+                board.</li>
+            <div class="foot">
+                <a href="../index.html"><i class="fa fa-home"></i></a>
+                <a href="https://tirtharajsinha.github.io"><i class="fa fa-user-md"></i></a>
+                <a href="mailto:sinhatirtharaj@gmail.com"><i class="fa fa-paper-plane"></i></a>
+                <a href="https://github.com/tirtharajsinha/gameboy"><i class="fa fa-github-alt"></i></a>
+            </div>
+        </ul>
+
+    </div>
+
+
+</body>
+<script src="../static/fontawasome5.15-pro.js"></script>
+
+<script>
+    let pongTheme = localStorage.getItem("pongTheme");
+    if (pongTheme == null) {
+        pongTheme = "dark";
+        localStorage.setItem("pongTheme", pongTheme);
+    } else {
+        if (pongTheme === "light") {
+            document.body.classList.add("light-theme");
+            document.querySelector(".theme-toggle i").classList.toggle("fa-sun");
+            document.querySelector(".theme-toggle i").classList.toggle("fa-moon");
+        }
+    }
+    console.log(pongTheme)
+    document.querySelector(".theme-toggle").addEventListener("click", (e) => {
+        document.body.classList.toggle("light-theme");
+        document.querySelector(".theme-toggle i").classList.toggle("fa-sun");
+        document.querySelector(".theme-toggle i").classList.toggle("fa-moon");
+        if (pongTheme == "light") {
+            pongTheme = "dark"
+            localStorage.setItem("pongTheme", pongTheme);
+        }
+        else {
+            pongTheme = "light"
+            localStorage.setItem("pongTheme", pongTheme);
+        }
+    });
+</script>
+<script src="script.js" type="module"></script>
+
+</html>

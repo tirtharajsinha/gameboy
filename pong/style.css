@@ -1,0 +1,244 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  transition: all 0.6s ease;
+}
+*:not(i) {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --text-color: #dbdbdbe3;
+  --foreground-color: rgba(255, 255, 255, 0.651);
+  --board-background-color: rgba(255, 255, 255, 0.494);
+  --body-background-color: rgb(0, 15, 83);
+}
+
+.light-theme {
+  --text-color: #444444e3;
+  --foreground-color: rgba(255, 255, 255, 0.651);
+  --board-background-color: #000a3873;
+  --body-background-color: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.208018241476278) 0%,
+    rgba(184, 197, 255, 0.5970763305322129) 39%
+  );
+}
+
+.theme-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 50px;
+  background-color: var(--board-background-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground-color);
+}
+
+body {
+  background: var(--body-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.board {
+  width: 80vw;
+  height: 80vh;
+  background: var(--board-background-color);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.paddle {
+  --position: 50;
+  position: absolute;
+  background-color: var(--foreground-color);
+  top: calc(var(--position) * 1vh);
+  width: 1vh;
+  height: 10vh;
+  transform: translateY(-15vh);
+  border-radius: 3px;
+  transition: background 0.4s ease;
+}
+.paddle.left {
+  left: 5px;
+}
+.paddle.right {
+  right: 5px;
+}
+
+.ball {
+  --x: 50;
+  --y: 50;
+  position: absolute;
+  background-color: var(--foreground-color);
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  transition: background 0.4s ease;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 5vh;
+  color: var(--foreground-color);
+}
+
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0vh 2vh;
+  margin: 1vh 0;
+  opacity: 0.7;
+}
+
+.score > :first-child {
+  text-align: right;
+  border-right: 3px solid var(--foreground-color);
+}
+
+#rules-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 89, 255, 0.623);
+  cursor: pointer;
+  z-index: 10;
+}
+.rules {
+  width: 0px;
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 40px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 10;
+  --thisheight: 570px;
+  --thiswidth: 350px;
+  --thispadding: 20px;
+}
+.rules img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+.rules h5 {
+  opacity: 0;
+  margin-bottom: 0px;
+}
+.rules h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.445);
+}
+.rules ul {
+  padding-left: 20px;
+  opacity: 0;
+}
+.rules ul li {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.rules .foot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: 0.5px solid rgba(165, 165, 165, 0.384);
+  padding: 10px;
+  font-size: 16px;
+}
+
+.rules .foot a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.575);
+  transition: none;
+}
+
+.enter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  font-size: 12px;
+  font-weight: 700;
+  bottom: 12vh;
+  color: white;
+  z-index: 3;
+}
+.enter img {
+  width: 50px;
+  height: auto;
+  animation: clicking 0.6s ease infinite;
+}
+.enter h4 {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgba(255, 255, 255, 0.733);
+}
+.enter h4 span {
+  color: rgb(255, 255, 255);
+}
+
+@keyframes clicking {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  100% {
+    transform: translate3d(5px, 5px, 10px);
+  }
+}
+
+.bottomimage {
+  position: fixed;
+  width: 200px;
+  height: auto;
+  bottom: 10px;
+  right: 10px;
+  z-index: -1;
+}
+.topimage {
+  position: fixed;
+  width: 200px;
+  height: auto;
+  top: 10px;
+  left: 10px;
+  z-index: -1;
+}

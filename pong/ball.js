@@ -1,5 +1,7 @@
 const INITIAL_VELOCITY = 0.025;
 const VELOCITY_INCREASE = 0.00001;
+const hitsound = new Audio("../audio/audio2.wav");
+
 export default class Ball {
   constructor(ballElem, board) {
     this.ballElem = ballElem;
@@ -58,6 +60,7 @@ export default class Ball {
     if (paddleRects.some((r) => isCollition(r, rect))) {
       this.direction.x *= -1;
       console.log("collition");
+      hitsound.play();
     }
   }
 }

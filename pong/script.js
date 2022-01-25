@@ -1,7 +1,8 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
+
+const misssound = new Audio("../audio/audio1.wav");
 let isGameStarted = false;
-let isgameon = false;
 let rules = false;
 const board = document.querySelector(".board");
 const ball = new Ball(document.getElementById("ball"), board);
@@ -24,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
     isGameStarted = false;
     ball.reset();
     computerPaddle.reset();
+    gameOverDialog(
+      parseInt(playerscoreElement.textContent),
+      parseInt(computerscoreElement.textContent)
+    );
     computerscoreElement.textContent = 0;
     playerscoreElement.textContent = 0;
   });
@@ -40,6 +45,7 @@ function gameEngine() {
         computerPaddle.update(delta, ball.y);
 
         if (isLose()) {
+          misssound.play();
           handleLose();
         }
       }
@@ -117,4 +123,19 @@ document.getElementById("rules-btn").addEventListener("blur", (e) => {
     document.getElementById("rules").style.height = "0px";
     document.getElementById("rules").style.padding = "0px";
   }, 500);
+});
+
+function gameOverDialog(score1, score2) {
+  document.getElementById("gameover").style.display = "flex";
+  document.getElementById("finalscore").innerHTML = score1 + "|" + score2;
+  let msg = "You Win !";
+  if (score2 < score1) {
+    msg = "Computer Win !";
+  } else if (score1 === score2) {
+    msg = "MAtch Draw";
+  }
+  document.getElementById("msg").innerHTML = msg;
+}
+document.querySelector("#reload").addEventListener("click", (e) => {
+  document.querySelector(".gameover").style.display = "none";
 });

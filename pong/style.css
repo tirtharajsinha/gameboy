@@ -242,3 +242,63 @@ body {
   left: 10px;
   z-index: -1;
 }
+
+.gameover {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  backdrop-filter: blur(7px);
+  background: rgba(39, 39, 39, 0.616);
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  transition: all 0.4s ease;
+}
+.gameover img {
+  width: 200px;
+  height: auto;
+  animation: appear 0.5s ease;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+@keyframes appear {
+  0% {
+    width: 170px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+.gameover h1 {
+  font-family: "Roboto Slab", serif;
+  color: tomato;
+}
+.gameover h4 {
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 20px;
+  font-weight: 700;
+}
+#reload {
+  font-size: 18px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.842);
+  color: rgb(71, 71, 71);
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.gameover h4:hover > i {
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

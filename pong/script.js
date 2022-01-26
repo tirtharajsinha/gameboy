@@ -129,7 +129,7 @@ function gameOverDialog(score1, score2) {
   document.getElementById("gameover").style.display = "flex";
   document.getElementById("finalscore").innerHTML = score1 + " | " + score2;
   let msg = "You Win !";
-  if (score2 < score1) {
+  if (score2 > score1) {
     msg = "Computer Win !";
   } else if (score1 === score2) {
     msg = "Match Draw";

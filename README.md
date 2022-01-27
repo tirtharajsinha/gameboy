@@ -13,6 +13,7 @@ A small Collection of self built Javascript Games.
 4.  [FlapyBird](https://tirtharajsinha.github.io/gameboy/FlapyBird/index.html)
 5.  [Birdshooter](https://tirtharajsinha.github.io/gameboy/Birdshooter/index.html)
 6.  [Pong](https://tirtharajsinha.github.io/gameboy/pong/index.html)
+7.  [Dino](https://tirtharajsinha.github.io/gameboy/dino/index.html)
 
 
 > ### contributors welcome

@@ -8,6 +8,8 @@ const JUMP_SPEED = 0.45;
 const GRAVITY = 0.002;
 const DINO_FRAME_COUNT = 2;
 const FRAME_TIME = 100;
+const jumpSound = new Audio("../audio/audio1.wav");
+jumpSound.volume = 0.5;
 
 let isJumping;
 let dinoFrame;
@@ -64,6 +66,7 @@ function handleJump(delta) {
 function onJump(e) {
   //   console.log("jumping", e.code !== "Space", isJumping);
   if (e.code !== "ArrowUp" || isJumping) return;
+  jumpSound.play();
   yVelocity = JUMP_SPEED;
   isJumping = true;
 }
@@ -71,6 +74,7 @@ function onJump(e) {
 function onJumpC() {
   //   console.log("jumping", e.code !== "Space", isJumping);
   if (isJumping) return;
+  jumpSound.play();
   yVelocity = JUMP_SPEED;
   isJumping = true;
 }

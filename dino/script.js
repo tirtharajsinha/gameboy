@@ -2,6 +2,10 @@ import { setupGround, updateGround } from "./ground.js";
 import { updateDino, setupDino, getDinoRect, setdinoLose } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactas.js";
 
+const gameoversound = new Audio("../audio/audio5.wav");
+const ScoreSound = new Audio("../audio/audio2.wav");
+const collitionSound = new Audio("../audio/fallOnGround.wav");
+
 let rules = false;
 const WORLD_WIDTH = 100;
 let WORLD_HEIGHT = 30;
@@ -34,7 +38,10 @@ function gameEngine() {
     updateCactus(delta, speedScale);
     updateGround(delta, speedScale);
     update_score(delta);
-    if (checkLose()) return handleLose();
+    if (checkLose()) {
+      collitionSound.play();
+      return handleLose();
+    }
     lastTime = time;
 
     window.requestAnimationFrame(update);
@@ -47,9 +54,9 @@ function gameEngine() {
 
   function isCollision(rect1, rect2) {
     return (
-      rect1.left < rect2.right &&
-      rect1.top + 20 < rect2.bottom &&
-      rect1.right > rect2.left &&
+      rect1.left + 20 < rect2.right - 10 &&
+      rect1.top + 50 < rect2.bottom &&
+      rect1.right - 20 > rect2.left &&
       rect1.bottom > rect2.top
     );
   }
@@ -57,6 +64,9 @@ function gameEngine() {
   function update_score(delta) {
     score += delta * 0.01;
     scoreElem.textContent = Math.floor(score);
+    if (Math.floor(score) % 100 == 0) {
+      ScoreSound.play();
+    }
   }
   function updateSpeedScale(delta) {
     speedScale += delta * SPEED_SCALE_INCREMENT;
@@ -144,6 +154,7 @@ function gameOverDialog(score) {
     document.getElementById("finalscore").innerHTML = score;
     let msg = "GAME OVER";
     document.getElementById("msg").innerHTML = msg;
+    gameoversound.play();
   }, 500);
 }
 document.querySelector("#reload").addEventListener("click", (e) => {
